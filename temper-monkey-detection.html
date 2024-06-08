@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Activity Monitor</title>
+    <script>
+        // Function to get the unique laptop ID
+        function getLaptopId() {
+            // Replace this with actual logic to retrieve or generate a unique laptop ID
+            return localStorage.getItem('unique_laptop_id') || 'default_laptop_id';
+        }
+
+        // Function to get the current user ID
+        function getUserId() {
+            // Replace this with actual logic to retrieve the user ID
+            return document.querySelector('#user-id').innerText || 'default_user_id';
+        }
+
+        // Function to send heartbeat signal
+        function sendHeartbeat() {
+            fetch('http://yourloggingserver.com/heartbeat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    user_id: getUserId(),
+                    laptop_id: getLaptopId(),
+                    timestamp: new Date().toISOString()
+                })
+            }).then(response => response.json())
+              .then(data => console.log('Heartbeat sent:', data))
+              .catch(error => console.error('Error sending heartbeat:', error));
+        }
+
+        // Send the heartbeat signal every 5 minutes
+        setInterval(sendHeartbeat, 300000); // 300000 ms = 5 minutes
+
+        // Initial call to send heartbeat as soon as page loads
+        sendHeartbeat();
+    </script>
+</head>
+<body>
+    <h1>Monitoring User Activity...</h1>
+    <div id="user-id" style="display: none;">user123</div> <!-- Replace with dynamic user ID fetching -->
+</body>
+</html>
