@@ -1138,12 +1138,13 @@ ol {
 
 .footer__option__item {
   margin-bottom: 35px;
-  text-align: right;
+  text-align: left;
 }
 .footer__option__item h5 {
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 35px;
+  text-align: left;
 }
 .footer__option__item p {
   font-weight: 300;
@@ -2489,7 +2490,11 @@ ol {
 
 .my-experince li{
   padding: 1%;
+  text-align: left;
+  padding-top: 4%;
 }
+
+.my-experince 
 
 .team__btn-1 {
   position: relative;
@@ -2577,4 +2582,19 @@ ol {
 .giveSomeSpace {
   padding-top: 2%;
   color: #e1e1e1;
+  text-align: left;  
 }
+
+.logo__item img {
+  width: 100px;  /* Set your desired width */
+  height: 100px;  /* Set your desired height */
+  object-fit: contain;  /* Ensure the image fits within the set dimensions */
+}
+
+.logo__item_1 img {
+  width: 100px;
+  height: 100px;  /* Set the height you want for .logo__item_1 images */
+  object-fit: contain;
+  /* Ensure the image fits within the set dimensions */
+}
+
